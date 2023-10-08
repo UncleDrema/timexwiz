@@ -18,6 +18,9 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: publish
+      url: https://pypi.org/project/timexwiz/
     permissions:
       id-token: write
 
