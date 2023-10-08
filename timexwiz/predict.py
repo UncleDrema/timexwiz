@@ -1,6 +1,6 @@
 from typing import Callable, Tuple, List, Dict, TypeAlias, Any
 
-import measure_timer
+from .measure_timer import *
 
 Arguments: TypeAlias = Tuple[List, Dict[str, Any]]
 MS_THRESHOLD = 250
@@ -14,7 +14,7 @@ def measure_funcs_on_args(total_sec: float, funcs: List[Callable], all_arguments
         rep_counts = predict_repeat_counts(one_func_ms, func, all_arguments)
         arg_with_repeats = list(zip(all_arguments, rep_counts))
         for arg, rep_count in arg_with_repeats:
-            with measure_timer.Timer() as t:
+            with Timer() as t:
                 for _ in range(rep_count):
                     func(*arg[0], **arg[1])
             measures.append(t.result_ms / rep_count)
@@ -36,7 +36,7 @@ def mean_time(func: Callable, arguments: Arguments):
     ms_total = 0
     while ms_total <= ms_total:
         runs += 1
-        with measure_timer.Timer() as t:
+        with Timer() as t:
             func(*arguments[0], **arguments[1])
         ms_total += t.result_ms
     return ms_total / runs
