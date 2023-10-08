@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="timexwiz",
-    version="1.0.11",
+    version="1.0.0",
     author="UncleDrema",
     author_email="missl.wipiece@gmail.com",
     description="Timexwiz is a simple Python library for time measure, benchmarking and algorithm comparisons.",
